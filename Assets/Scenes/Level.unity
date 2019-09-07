@@ -341,6 +341,51 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50.730003, y: -36.079002, z: -1.5370001}
+--- !u!1 &170109172 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100038, guid: 23db785884e02438aae8c35f4f24eddc,
+    type: 3}
+  m_PrefabInstance: {fileID: 1401326131}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &170109173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 170109172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f4296d7129634c33a7ce396221437cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 534669905}
+  rotSpeed: 15
+  moveSpeed: 6
+--- !u!4 &170109174 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400038, guid: 23db785884e02438aae8c35f4f24eddc,
+    type: 3}
+  m_PrefabInstance: {fileID: 1401326131}
+  m_PrefabAsset: {fileID: 0}
+--- !u!143 &170109176
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 170109172}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 2
+  m_Radius: 0.4
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &526059138
 GameObject:
   m_ObjectHideFlags: 0
@@ -505,7 +550,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a3730c9dc4924d46b640d2f0f0cf730, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  target: {fileID: 170109174}
   rotSpeed: 1.5
 --- !u!1 &588862105
 GameObject:
