@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BasicUI : MonoBehaviour {
-  void OnGUI() {
+void OnGUI() {
     int posX = 10;
     int posY = 10;
     int width = 100;
@@ -31,8 +31,16 @@ public class BasicUI : MonoBehaviour {
     posX = 10;
     posY += height+buffer;
 
+    // Debug.Log("Before loop");
+    //for (int j = 0; j < itemList.length; j++)
+    // || Input.GetKeyDown((itemList.IndexOf(item) + 1).ToString())
     foreach (string item in itemList) {
+      // Debug.Log("In Loop");
+      // string keyPress = (itemList.IndexOf(item) + 1).ToString();
+      // Debug.Log("Key Press to check: " + keyPress);
+
       if (GUI.Button(new Rect(posX, posY, width, height), "Equip "+item)) {
+        // Debug.Log("Equipping.....");
         Managers.Inventory.EquipItem(item);
       }
 
@@ -44,6 +52,22 @@ public class BasicUI : MonoBehaviour {
       }
 
       posX += width+buffer;
+    }
+  }
+
+  void Update() {
+    List<string> itemList_ = Managers.Inventory.GetItemList();
+    foreach (string item_ in itemList_) {
+      if (Input.GetKeyDown((itemList_.IndexOf(item_) + 1).ToString())) {
+        Managers.Inventory.EquipItem(item_);
+      }
+
+      if (item_ == "health") {
+        if (Input.GetKeyDown("u")) {
+          Managers.Inventory.ConsumeItem("health");
+          Managers.Player.ChangeHealth(25);
+        }
+      }
     }
   }
 }
