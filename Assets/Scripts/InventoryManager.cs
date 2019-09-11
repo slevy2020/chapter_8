@@ -9,8 +9,12 @@ public class InventoryManager : MonoBehaviour, IGameManager {
 
   private Dictionary<string, int> _items;
 
-  public void Startup() {
+  private NetworkService _network;
+
+  public void Startup(NetworkService service) {
     Debug.Log("Inventory manager starting...");
+
+    _network = service;
 
     _items = new Dictionary<string, int>();
 
@@ -72,5 +76,9 @@ public class InventoryManager : MonoBehaviour, IGameManager {
 
     DisplayItems();
     return true;
+  }
+
+  public string GetEquipped() {
+    return equippedItem;
   }
 }

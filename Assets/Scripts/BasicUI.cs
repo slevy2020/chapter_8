@@ -62,10 +62,11 @@ void OnGUI() {
         Managers.Inventory.EquipItem(item_);
       }
 
-      if (item_ == "health") {
+      if (Managers.Inventory.GetEquipped() == "health") {
         if (Input.GetKeyDown("u")) {
           Managers.Inventory.ConsumeItem("health");
           Managers.Player.ChangeHealth(25);
+          Managers.Inventory.EquipItem("health");
         }
       }
     }
