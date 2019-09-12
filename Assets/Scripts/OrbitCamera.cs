@@ -16,7 +16,7 @@ public class OrbitCamera : MonoBehaviour {
   }
 
   void LateUpdate() {
-    _rotY -= Input.GetAxis("Horizontal")*rotSpeed;
+    _rotY += Input.GetAxis("Horizontal")*rotSpeed;
     Quaternion rotation = Quaternion.Euler(0, _rotY, 0);
     transform.position = target.position - (rotation*_offset);
     transform.LookAt(target);
