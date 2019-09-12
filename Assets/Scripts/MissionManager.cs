@@ -16,10 +16,14 @@ public class MissionManager : MonoBehaviour, IGameManager {
 
     _network = service;
 
-    curLevel = 0;
-    maxLevel = 1;
+    UpdateData(0, 1);
 
     status = ManagerStatus.Started;
+  }
+
+  public void UpdateData(int curLevel, int maxLevel) {
+    this.curLevel = curLevel;
+    this.maxLevel = maxLevel;
   }
 
   public void GoToNext() {
@@ -30,11 +34,18 @@ public class MissionManager : MonoBehaviour, IGameManager {
       SceneManager.LoadScene(name);
     } else {
       Debug.Log("Last Level");
+      Messenger.Broadcast(GameEvent.GAME_COMPLETE);
     }
   }
 
   public void ReachObjective() {
     //could have logic to handle multiple objectives
     Messenger.Broadcast(GameEvent.LEVEL_COMPLETE);
+  }
+
+  public void RestartCurrent() {
+    string name = "Level" + curLevel;
+    Debug.Log("Loading " + name);
+    SceneManager.LoadScene(name);
   }
 }
